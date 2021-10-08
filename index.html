@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Just</title>
+    <script src="https://kit.fontawesome.com/8f02f80272.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('b.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            width: auto;
+            height: 500px;
+            margin: 0;
+            padding: 0;
+        }
+
+        /*h1{
+            color: white;
+            margin: 0;
+            text-align: center;
+        }*/
+
+        #cen {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
+
+        #thething {
+            position: relative;
+            margin-top: 300px;
+            width: 700px;
+            height: 50px;
+            text-align: center;
+            font-size: 24px;
+            padding: 5px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #lookup {
+            cursor: pointer;
+            height: 50px;
+            width: auto;
+            text-align: center;
+            font-size: 26px;
+            background-color: rgb(13, 153, 240);
+            border-color: lightskyblue;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #forupdate {
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+        }
+
+        #bar {
+            cursor: pointer;
+            float: left;
+            margin-top: 30px;
+            margin-left: 50px;
+            color: white;
+            font-size: 18px;
+            border: none;
+            background-color: transparent;
+        }
+
+        #update {
+            cursor: pointer;
+            float: right;
+            margin-top: 30px;
+            margin-right: 50px;
+            color: white;
+            font-size: 18px;
+            border: none;
+            background-color: transparent;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="forupdate">
+        <button id="bar"><i class="fas fa-bars"></i></i></button>
+    </div>
+    <div id="forupdate">
+        <button id="update">Updates</button>
+    </div>
+    <div id=cen>
+        <label for="thething"></label>
+        <select name="box" id="thething">
+            <option value="">Please select year</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+        </select>
+        <button id="lookup">Look up</button>
+    </div>
+
+    <span></span>
+
+
+
+</body>
+
+</html>
