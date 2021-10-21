@@ -9,14 +9,18 @@
             box-sizing: border-box;
         }
 
-        body {
+        body, html{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bg {
             background-image: url('images/black_background.jpg');
             background-repeat: no-repeat;
             background-position: center;
-            width: auto;
-            height: 500px;
-            margin: 0;
-            padding: 0;
+            background-size: cover;
+            height: 100%;
         }
 
         /*h1{
@@ -27,71 +31,100 @@
 
         #cen {
             position: absolute;
+            top: 300px;
             text-align: center;
             width: 100%;
         }
 
         #thething {
             position: relative;
-            margin-top: 300px;
             width: 700px;
             height: 50px;
             text-align: center;
             font-size: 24px;
             padding: 5px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
+        } 
 
         #lookup {
             cursor: pointer;
             height: 50px;
             width: auto;
             text-align: center;
-            font-size: 26px;
+            font-size: 24px;
             background-color: rgb(13, 153, 240);
             border-color: lightskyblue;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
-        #forupdate {
+       /* #forupdate {
             position: absolute;
             width: 100%;
             z-index: 1;
-        }
+        } */
 
         #bar {
+            position: absolute;
             cursor: pointer;
             float: left;
-            margin-top: 30px;
-            margin-left: 50px;
+            top: 30px;
+            left: 50px;
             color: white;
             font-size: 18px;
             border: none;
             background-color: transparent;
+            z-index: 1;
         }
 
         #update {
+            position: absolute;
             cursor: pointer;
             float: right;
-            margin-top: 30px;
-            margin-right: 50px;
+            top: 30px;
+            right: 50px;
             color: white;
             font-size: 18px;
             border: none;
             background-color: transparent;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            z-index: 1;
         }
+
+        #forinfo {
+            position: absolute;
+            cursor: pointer;
+            float: left;
+            left: 50px;
+            bottom: 30px;
+            font-size: 18px;
+            color: white;
+            border: none;
+            background-color: transparent;
+        }
+
+        /*
+        #forrobot{
+            position: absolute;
+            bottom: 30px;
+            cursor: pointer;
+            float: right;
+            margin-right: 50px;
+            border: none;
+            background-color: transparent;
+        }
+        */
     </style>
 </head>
 
 <body>
-    <div id="forupdate">
-        <button id="bar"><i class="fas fa-bars"></i></i></button>
+    <div class="bg"></div>
+    <div>
+        <button id="bar"><i class="fas fa-bars"></i></button>
     </div>
-    <div id="forupdate">
+    <div>
         <button id="update">Updates</button>
     </div>
-    <div id=cen>
+    <div id="cen">
         <label for="thething"></label>
         <select name="box" id="thething">
             <option value="">Please select year</option>
@@ -102,10 +135,30 @@
         </select>
         <button id="lookup">Look up</button>
     </div>
+    <div>
+        <button id="forinfo"><i class="fas fa-info-circle"></i></button>
+    </div>
+    <!--
+    <div>
+        <button>
+            <img src="images/r1.png" alt="robotimage" id="forrobot">
+        </button>
+    </div>
+    -->
 
-    <span></span>
+    <script>
+        function myFunction() {
+            alert('Oops! It doesn\'t work');
+        }
+        let bar = document.getElementById("bar");
+        bar.addEventListener('click', myFunction);
 
+        let test = document.getElementById("update");
+        test.addEventListener('click', myFunction);
 
+        let fori = document.getElementById("forinfo");
+        fori.addEventListener('click', myFunction);
+    </script>
 
 </body>
 
