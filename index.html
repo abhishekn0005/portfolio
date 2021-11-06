@@ -3,127 +3,44 @@
 
 <head>
     <title>Just</title>
+    <meta charset="utf-8">
     <script src="https://kit.fontawesome.com/8f02f80272.js" crossorigin="anonymous"></script>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body, html{
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        .bg {
-            background-image: url('images/black_background.jpg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            height: 100%;
-        }
-
-        /*h1{
-            color: white;
-            margin: 0;
-            text-align: center;
-        }*/
-
-        #cen {
-            position: absolute;
-            top: 300px;
-            text-align: center;
-            width: 100%;
-        }
-
-        #thething {
-            position: relative;
-            width: 700px;
-            height: 50px;
-            text-align: center;
-            font-size: 24px;
-            padding: 5px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        } 
-
-        #lookup {
-            cursor: pointer;
-            height: 50px;
-            width: auto;
-            text-align: center;
-            font-size: 24px;
-            background-color: rgb(13, 153, 240);
-            border-color: lightskyblue;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-
-       /* #forupdate {
-            position: absolute;
-            width: 100%;
-            z-index: 1;
-        } */
-
-        #bar {
-            position: absolute;
-            cursor: pointer;
-            float: left;
-            top: 30px;
-            left: 50px;
-            color: white;
-            font-size: 18px;
-            border: none;
-            background-color: transparent;
-            z-index: 1;
-        }
-
-        #update {
-            position: absolute;
-            cursor: pointer;
-            float: right;
-            top: 30px;
-            right: 50px;
-            color: white;
-            font-size: 18px;
-            border: none;
-            background-color: transparent;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            z-index: 1;
-        }
-
-        #forinfo {
-            position: absolute;
-            cursor: pointer;
-            float: left;
-            left: 50px;
-            bottom: 30px;
-            font-size: 18px;
-            color: white;
-            border: none;
-            background-color: transparent;
-        }
-
-        /*
-        #forrobot{
-            position: absolute;
-            bottom: 30px;
-            cursor: pointer;
-            float: right;
-            margin-right: 50px;
-            border: none;
-            background-color: transparent;
-        }
-        */
-    </style>
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+<body onload="askName()" id="main">
+
     <div class="bg"></div>
-    <div>
-        <button id="bar"><i class="fas fa-bars"></i></button>
+
+    <div class="entry">
+        <p class="userpara"></p>
+        <p class="noUser"></p>
     </div>
+
+    <div id="load" class="loading">
+        <div class="loader"></div>
+        <div class="placecenter">
+        <!-- <a href="javascript:void(0)" class="closeloadbtn" onclick="closeLoading()">&times;</a> -->
+        <h3 style="color: white;">Just a second...</h3>
+        </div>
+    </div>
+
+    <div>
+        <button id="bar" onclick="openNav()"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#"><img src="images/myPhoto.png" alt="Developer_Image" width="120px" height="120px"></a>
+        <a href="#">About Me</a>
+        <a href="#">Contact Me</a>
+    </div>
+
     <div>
         <button id="update">Updates</button>
     </div>
+
     <div id="cen">
         <label for="thething"></label>
         <select name="box" id="thething">
@@ -138,20 +55,62 @@
     <div>
         <button id="forinfo"><i class="fas fa-info-circle"></i></button>
     </div>
-    <!--
-    <div>
-        <button>
-            <img src="images/r1.png" alt="robotimage" id="forrobot">
-        </button>
-    </div>
-    -->
 
-    <script>
+    <div>
+        <button id="chat"><i class="far fa-comment"></i></button>
+    </div>
+
+    <script defer>
+
+        //prompt to ask user for name
+        function askName() {
+            let username = sessionStorage.getItem('username');
+
+            if (username === null) {
+                username = prompt("Give me a chance to make this seesion interactive, please enter your name.");
+            }
+
+            if (username !== null) {
+                document.querySelector(".userpara").innerHTML = "Hello, " + username + '!';
+                sessionStorage.setItem('username', username);
+            } else {
+                document.querySelector(".noUser").innerHTML = "Welcome, Stranger!";
+            }
+        }
+
+        /* let bar = document.getElementById("bar");
+        bar.addEventListener('click', myFunction); */
+
+        //for side navigation bar
+        var count = 0;
+
+        function openLoading() {
+            document.getElementById("load").style.width = "100%";
+            setTimeout(function closeLoading() {
+            document.getElementById("load").style.width = "0";
+        }, 1000);
+        }
+
+        function openNav() {
+            if (count === 0) {
+                openLoading();
+                count++;
+            } else {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("bar").style.display = "none";
+                document.getElementById("forinfo").style.display = "none";
+            }
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("bar").style.display = "block";
+            document.getElementById("forinfo").style.display = "block";
+        }
+
         function myFunction() {
             alert('Oops! It doesn\'t work');
         }
-        let bar = document.getElementById("bar");
-        bar.addEventListener('click', myFunction);
 
         let test = document.getElementById("update");
         test.addEventListener('click', myFunction);
