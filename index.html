@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Just</title>
+    <title>Portfolio</title>
     <meta charset="utf-8">
     <script src="https://kit.fontawesome.com/8f02f80272.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css">
@@ -33,8 +33,8 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#"><img src="images/myPhoto.png" alt="Developer_Image" width="120px" height="120px"></a>
-        <a href="#">About Me</a>
-        <a href="#">Contact Me</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
     </div>
 
     <div>
@@ -82,26 +82,29 @@
         bar.addEventListener('click', myFunction); */
 
         //for side navigation bar
-        var count = 0;
+        //var count = 0;
 
         function openLoading() {
             document.getElementById("load").style.width = "100%";
             setTimeout(function closeLoading() {
             document.getElementById("load").style.width = "0";
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("bar").style.display = "none";
+            document.getElementById("forinfo").style.display = "none";
         }, 1000);
         }
 
         function openNav() {
-            if (count === 0) {
+            //if (count === 0) {
                 openLoading();
-                count++;
-            } else {
+            //    count++;
+            /*} else {
                 document.getElementById("mySidenav").style.width = "250px";
                 document.getElementById("bar").style.display = "none";
                 document.getElementById("forinfo").style.display = "none";
-            }
+            }*/
         }
-
+        
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("bar").style.display = "block";
@@ -117,6 +120,9 @@
 
         let fori = document.getElementById("forinfo");
         fori.addEventListener('click', myFunction);
+
+        let forChat = document.getElementById("chat");
+        forChat.addEventListener('click', myFunction);
     </script>
 
 </body>
