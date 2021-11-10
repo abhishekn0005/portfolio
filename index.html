@@ -21,8 +21,8 @@
     <div id="load" class="loading">
         <div class="loader"></div>
         <div class="placecenter">
-        <!-- <a href="javascript:void(0)" class="closeloadbtn" onclick="closeLoading()">&times;</a> -->
-        <h3 style="color: white;">Just a second...</h3>
+            <!-- <a href="javascript:void(0)" class="closeloadbtn" onclick="closeLoading()">&times;</a> -->
+            <h3 style="color: white;">Just a second...</h3>
         </div>
     </div>
 
@@ -38,14 +38,21 @@
     </div>
 
     <div>
-        <button id="update">Updates</button>
+        <button id="update" onclick="updatesFunction()">Updates</button>
+    </div>
+
+    <div id="updateform">
+        <a href="javascript:void(0)" class="closeupdatebtn" onclick="closeUpdateBtn()">&times;</a>
+        <p class="paragraph">Added the date function</p>
+        <p id="date" class="dateshort"></p>
+        <hr>
     </div>
 
     <div id="cen">
         <label for="thething"></label>
         <select name="box" id="thething">
             <option value="">Please select year</option>
-            <option value="2021">2021</option>
+            <option value="2021"><a href="humanoid.html">2021</a></option>
             <option value="2020">2020</option>
             <option value="2019">2019</option>
             <option value="2018">2018</option>
@@ -53,7 +60,11 @@
         <button id="lookup">Look up</button>
     </div>
     <div>
-        <button id="forinfo"><i class="fas fa-info-circle"></i></button>
+        <button id="forinfo" onclick="ibtn()"><i class="fas fa-info-circle"></i></button>
+    </div>
+
+    <div id="thebox">
+        <div id="theboxpara"></div>
     </div>
 
     <div>
@@ -87,16 +98,16 @@
         function openLoading() {
             document.getElementById("load").style.width = "100%";
             setTimeout(function closeLoading() {
-            document.getElementById("load").style.width = "0";
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("bar").style.display = "none";
-            document.getElementById("forinfo").style.display = "none";
-        }, 1000);
+                document.getElementById("load").style.width = "0";
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("bar").style.display = "none";
+                document.getElementById("forinfo").style.display = "none";
+            }, 1000);
         }
 
         function openNav() {
             //if (count === 0) {
-                openLoading();
+            openLoading();
             //    count++;
             /*} else {
                 document.getElementById("mySidenav").style.width = "250px";
@@ -104,7 +115,7 @@
                 document.getElementById("forinfo").style.display = "none";
             }*/
         }
-        
+
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("bar").style.display = "block";
@@ -115,11 +126,40 @@
             alert('Oops! It doesn\'t work');
         }
 
+        /*
         let test = document.getElementById("update");
         test.addEventListener('click', myFunction);
+        */
 
-        let fori = document.getElementById("forinfo");
-        fori.addEventListener('click', myFunction);
+        function updatesFunction() {
+            // var x = document.lastModified;
+            //document.getElementById("demopara").innerHTML = x;
+            document.getElementById("updateform").style.display = "block";
+            forDateUpdate();
+        }
+
+        function forDateUpdate() {
+            var x = new Date(document.lastModified);
+            const store = document.getElementById("date").innerHTML = x;
+            p.appendChild(store);
+        }
+
+        function closeUpdateBtn(){
+            document.getElementById("updateform").style.display = "none";
+        }
+        /*let fori = document.getElementById("forinfo");
+        fori.addEventListener('click', myFunction);*/
+
+        function ibtn() {
+            document.getElementById("thebox").style.display = "block";
+            const box = document.createElement("div");
+            const para = document.createElement("p");
+            box.appendChild(para);
+            const node = document.createTextNode("This website has NO copyrights.");
+            para.appendChild(node);
+            const element = document.getElementById("thebox");
+            element.appendChild(para);
+        }
 
         let forChat = document.getElementById("chat");
         forChat.addEventListener('click', myFunction);
