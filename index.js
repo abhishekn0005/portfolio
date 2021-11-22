@@ -3,7 +3,7 @@ function askName() {
     let username = sessionStorage.getItem('username');
 
     if (username === null) {
-        username = prompt("Give me a chance to make this seesion interactive, please enter your name.");
+        username = prompt("Give me a chance to make this session interactive, please enter your name.");
     }
 
     if (username !== null) {
@@ -24,9 +24,9 @@ function openLoading() {
     document.getElementById("load").style.width = "100%";
     setTimeout(function closeLoading() {
         document.getElementById("load").style.width = "0";
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("bar").style.display = "none";
-        document.getElementById("forinfo").style.display = "none";
+        //document.getElementById("mySidenav").style.width = "250px";
+        //document.getElementById("bar").style.display = "none";
+        //document.getElementById("forinfo").style.display = "none";
     }, 1000);
 }
 
@@ -72,11 +72,19 @@ function forDateUpdate() {
 function closeUpdateBtn(){
     document.getElementById("updateform").style.display = "none";
 }
+
 /*let fori = document.getElementById("forinfo");
 fori.addEventListener('click', myFunction);*/
 
-function ibtn() {
-    document.getElementById("thebox").style.display = "block";
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+
+//function ibtn() {
+//    document.getElementById("thebox").style.display = "block"; 
+
     /*const box = document.createElement("div");
     const para = document.createElement("p");
     box.appendChild(para);
@@ -84,11 +92,12 @@ function ibtn() {
     para.appendChild(node);
     const element = document.getElementById("thebox");
     element.appendChild(para);*/
-}
+//}
 
+/*
 function ibtnclose() {
     document.getElementById("thebox").style.display = "none";
-}
+} */
 
 let forChat = document.getElementById("chat");
 forChat.addEventListener('click', myFunction);
