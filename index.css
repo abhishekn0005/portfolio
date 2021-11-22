@@ -137,6 +137,8 @@ body, html{
 }
 */
 
+/* for side nav */
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -182,6 +184,8 @@ body, html{
     .sidenav a {font-size: 18px;}
   }
 
+/* for update button */
+
 #update {
     position: absolute;
     cursor: pointer;
@@ -226,6 +230,8 @@ body, html{
   font-size: 36px;
   text-decoration: none;
 }
+
+/* for i button */
 
 #forinfo {
     position: absolute;
